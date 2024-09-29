@@ -36,7 +36,6 @@ def launch_ec2(): #creating a ec2 instance
             }
         ]
     )
-        )
     instance_id = instances[0].id
     print(f'EC2 instance {instance_id} launched successfully.') 
     return instance_id
