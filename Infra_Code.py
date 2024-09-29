@@ -46,7 +46,7 @@ def create_load_balancer(instance_id): #load balancer creation
     response = elb.create_load_balancer(
         Name='ShubhamR-load-balancer',
         Subnets=['subnet-0f30c30418def6379', 'subnet-09bd0e0acc92d4efa'],  # 2 different subnets from 2 different availability zone
-        SecurityGroups=['sg-123abc']
+        SecurityGroups=['sg-0ff7dc4e0c607385a'] # from existing security groups Launch wizard 22 - you can use your own security group which is there
     )
 
     lb_arn = response['LoadBalancers'][0]['LoadBalancerArn']
