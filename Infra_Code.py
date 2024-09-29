@@ -1,11 +1,17 @@
 import boto3
 
-def create_s3_bucket(): #creating a s3 bucket
-    s3 = boto3.client('s3')
-    bucket_name = 'ShubhamR-webapp-bucket'
+def create_s3_bucket():
+    s3 = boto3.client('s3', 'us-west-2')  # Creating the client with the default specified region
+    bucket_name = 'shubhamrwebappbucket1'
 
-    response = s3.create_bucket(Bucket=bucket_name)
-    print(f'S3 bucket {bucket_name} created successfully.') #successful creation of S3 
+    response = s3.create_bucket(
+        Bucket=bucket_name,
+            CreateBucketConfiguration={
+                'LocationConstraint': 'us-west-2'
+                }
+            )
+
+    print(f'S3 bucket {bucket_name} created successfully.')
 
 def launch_ec2(): #creating a ec2 instance
     ec2 = boto3.resource('ec2')  
