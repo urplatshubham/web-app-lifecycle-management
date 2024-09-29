@@ -24,6 +24,18 @@ def launch_ec2(): #creating a ec2 instance
             sudo systemctl start nginx
             sudo systemctl enable nginx
             '''
+            TagSpecifications=[
+            {
+                'ResourceType': 'instance',
+                'Tags': [
+                    {
+                        'Key': 'Name',
+                        'Value': 'MyWebServer'  # Give your EC2 instance a name here
+                    }
+                ]
+            }
+        ]
+    )
         )
     instance_id = instances[0].id
     print(f'EC2 instance {instance_id} launched successfully.') 
